@@ -37,5 +37,10 @@ explore: sales {
     relationship: many_to_one
     sql_on: ${iowa_liquor_category.category} = ${iowa_liquor_sales.category} ;;
   }
+  join: items {
+    view_label: "Items"
+    relationship: many_to_one
+    sql_on: ${items.item_number} = ${iowa_liquor_sales.item_number} ;;
+  }
 
 }
