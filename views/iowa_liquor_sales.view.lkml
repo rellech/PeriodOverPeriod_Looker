@@ -17,7 +17,7 @@ view: iowa_liquor_sales {
     sql: ${TABLE}.category ;;
   }
 
-  dimension_group: sales_date {
+  dimension_group: sales {
     type: time
     timeframes: [time, date, week, month, raw]
     datatype: date
