@@ -16,7 +16,7 @@ explore: sales {
   join: iowa_liquor_stores {
     view_label: "Stores"
     relationship: many_to_one
-    sql_on:  = ${iowa_liquor_stores.store_number} = ${iowa_liquor_sales.store_number} ;;
+    sql_on:  ${iowa_liquor_stores.store_number} = ${iowa_liquor_sales.store_number} ;;
   }
 
   join: iowa_liquor_county {
