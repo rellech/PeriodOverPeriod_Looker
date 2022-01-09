@@ -19,7 +19,7 @@ view: iowa_liquor_sales {
 
   dimension_group: sales {
     type: time
-    timeframes: [time, date, week, month,quarter, year, raw]
+    timeframes: [time, date, week, month, month_num,quarter, year, raw]
     datatype: date
     sql: ${TABLE}.date ;;
   }
@@ -86,9 +86,17 @@ view: iowa_liquor_sales {
 
   measure: total_sales_YTD {
     label: "Total Sales YTD"
-    type: running_total
+    type: sum
     value_format_name: usd
-    sql: ${total_sales} ;;
+    sql: ${sale_dollars} ;;
+    filters: [sales_year: "2 years ago"]
+  }
+  measure: total_sales_LY {
+    label: "Total Sales LY"
+    type: sum
+    value_format_name: usd
+    sql: ${sale_dollars} ;;
+    filters: [sales_year: "3 years ago"]
   }
 
 }
