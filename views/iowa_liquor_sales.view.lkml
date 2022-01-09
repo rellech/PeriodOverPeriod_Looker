@@ -19,7 +19,7 @@ view: iowa_liquor_sales {
 
   dimension_group: sales {
     type: time
-    timeframes: [time, date, week, month, raw]
+    timeframes: [time, date, week, month,quarter, year, raw]
     datatype: date
     sql: ${TABLE}.date ;;
   }
@@ -43,21 +43,6 @@ view: iowa_liquor_sales {
   dimension: sale_dollars {
     type: number
     sql: ${TABLE}.sale_dollars ;;
-  }
-
-  measure: total_sales {
-    label: "Total Sales"
-    type: sum
-    value_format_name: usd
-    sql: ${sale_dollars} ;;
-
-  }
-
-  measure: total_sales_YTD {
-    label: "Total Sales YTD"
-    type: running_total
-    value_format_name: usd
-    sql: ${total_sales} ;;
   }
 
   dimension: state_bottle_cost {
@@ -88,6 +73,22 @@ view: iowa_liquor_sales {
   dimension: volume_sold_liters {
     type: number
     sql: ${TABLE}.volume_sold_liters ;;
+  }
+######### MEASURES #########
+
+  measure: total_sales {
+    label: "Total Sales"
+    type: sum
+    value_format_name: usd
+    sql: ${sale_dollars} ;;
+
+  }
+
+  measure: total_sales_YTD {
+    label: "Total Sales YTD"
+    type: running_total
+    value_format_name: usd
+    sql: ${total_sales} ;;
   }
 
 }
