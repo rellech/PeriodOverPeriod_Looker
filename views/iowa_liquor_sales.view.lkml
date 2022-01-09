@@ -46,11 +46,18 @@ view: iowa_liquor_sales {
   }
 
   measure: total_sales {
-    label: "Total sales"
+    label: "Total Sales"
     type: sum
     value_format_name: usd
     sql: ${sale_dollars} ;;
 
+  }
+
+  measure: total_sales_YTD {
+    label: "Total Sales YTD"
+    type: running_total
+    value_format_name: usd
+    sql: ${total_sales} ;;
   }
 
   dimension: state_bottle_cost {
