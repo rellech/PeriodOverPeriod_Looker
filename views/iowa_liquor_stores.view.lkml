@@ -3,11 +3,13 @@ view: iowa_liquor_stores {
     ;;
 
   dimension: address {
+    group_label: "Geography"
     type: string
     sql: ${TABLE}.address ;;
   }
 
   dimension: city {
+    group_label: "Geography"
     type: string
     sql: ${TABLE}.city ;;
   }
@@ -18,6 +20,7 @@ view: iowa_liquor_stores {
   }
 
   dimension: store_location {
+    group_label: "Geography"
     type: string
     sql: ${TABLE}.store_location ;;
   }
@@ -33,11 +36,13 @@ view: iowa_liquor_stores {
   }
 
   dimension: zip_code {
+    group_label: "Geography"
     type: zipcode
     sql: ${TABLE}.zip_code ;;
   }
 
   measure: count {
+    label: "Number of Stores"
     type: count
     drill_fields: [store_name]
   }

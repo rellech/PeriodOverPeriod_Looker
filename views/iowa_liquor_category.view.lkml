@@ -12,4 +12,10 @@ view: iowa_liquor_category {
     sql: ${TABLE}.category_name ;;
   }
 
+  measure: count_distinct_category {
+    label: "Count Distinct Category"
+    type: count_distinct
+    sql: ${category} ;;
+  }
+
 }
