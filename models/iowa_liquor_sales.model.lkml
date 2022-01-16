@@ -44,3 +44,12 @@ explore: sales {
   }
 
 }
+explore: fannout_test {
+  label: "(2) Fannout Test"
+  view_name: orders_test
+  join: customer_test {
+    view_label: "Customer Test"
+    relationship: many_to_one
+    sql_on: ${orders_test.customer_id} = ${customer_test.customer_id} ;;
+  }
+}
