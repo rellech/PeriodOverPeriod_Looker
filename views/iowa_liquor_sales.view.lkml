@@ -98,6 +98,13 @@ view: iowa_liquor_sales {
     sql: ${total_sales} / ${total_cost} - 1 ;;
   }
 
+  measure: total_bottles {
+    label: "Total Bottles"
+    type: sum
+    value_format: "0"
+    sql: ${bottles_sold} ;;
+  }
+
   measure: total_benefit {
     label: "Benefit"
     type: sum
