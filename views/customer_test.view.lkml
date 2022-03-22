@@ -10,7 +10,7 @@ view: customer_test {
 
   dimension: first_name {
     type: string
-    sql: ${TABLE}.first_name ;;
+    sql: ${TABLE}.first_name;;
   }
 
   dimension: last_name {

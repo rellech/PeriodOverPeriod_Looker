@@ -11,6 +11,7 @@ datagroup: iowa_liquor_sales_default_datagroup {
 persist_with: iowa_liquor_sales_default_datagroup
 
 explore: sales {
+  group_label: "Iowa Liquor Sales Explores"
   label: "(1) Iowa Liquor Sales"
   view_name: iowa_liquor_sales
   join: iowa_liquor_stores {
@@ -45,6 +46,7 @@ explore: sales {
 
 }
 explore: fannout_test {
+  group_label: "Iowa Liquor Sales Explores"
   label: "(2) Fannout Test"
   view_name: orders_test
   join: customer_test {
