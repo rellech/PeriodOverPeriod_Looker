@@ -95,7 +95,7 @@ view: iowa_liquor_sales {
     label: "Margin"
     type: sum
     value_format: "0.00%"
-    sql: ${sale_dollars} / (${bottles_sold} * ${state_bottle_cost}) - 1 ;;
+    sql: sum(${sale_dollars}) / sum((${bottles_sold} * ${state_bottle_cost})) - 1 ;;
   }
 
   measure: total_benefit {
