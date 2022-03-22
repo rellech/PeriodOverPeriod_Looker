@@ -99,7 +99,7 @@ view: iowa_liquor_sales {
   }
 
   measure: total_benefit {
-    label: "Margin"
+    label: "Benefit"
     type: sum
     value_format_name: usd
     sql: ${sale_dollars} - (${bottles_sold} * ${state_bottle_cost}) ;;
