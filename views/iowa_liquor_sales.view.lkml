@@ -159,9 +159,9 @@ view: iowa_liquor_sales {
 
   measure: total_benefit {
     label: "Benefit"
-    type: sum
+    type: number
     value_format_name: usd
-    sql: ${sale_dollars} - (${bottles_sold} * ${state_bottle_cost}) ;;
+    sql: ${total_sales} - ${total_cost} ;;
   }
 
   measure: total_sales_YTD {
@@ -180,6 +180,6 @@ view: iowa_liquor_sales {
   }
 
   set: detail {
-    fields: [invoice_and_item_number, category, items.item_description, iowa_liquor_stores.store_name]
+    fields: [invoice_and_item_number,sales_date,  category, items.item_description, iowa_liquor_stores.store_name, iowa_liquor_county.county, total_sales, total_cost, total_benefit, total_margin]
   }
 }
