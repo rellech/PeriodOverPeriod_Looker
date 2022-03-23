@@ -25,6 +25,7 @@ view: iowa_liquor_sales {
   }
 
   dimension: invoice_and_item_number {
+    primary_key: yes
     type: string
 
     sql: ${TABLE}.invoice_and_item_number ;;
@@ -81,6 +82,7 @@ view: iowa_liquor_sales {
     type: sum
     value_format_name: usd
     sql: ${sale_dollars} ;;
+    drill_fields: [detail*]
 
   }
 
@@ -127,4 +129,7 @@ view: iowa_liquor_sales {
     filters: [sales_year: "3 years ago"]
   }
 
+  set: detail {
+    fields: [category, items.item_description, store_number]
+  }
 }
