@@ -14,10 +14,10 @@ explore: sales {
   group_label: "Iowa Liquor Sales Explores"
   label: "(1) Iowa Liquor Sales"
   view_name: iowa_liquor_sales
-  access_filter: {
-    field: items.item_description
-    user_attribute: item_access
-  }
+  # access_filter: {
+  #   field: items.item_description
+  #   user_attribute: item_access
+  # }
   join: iowa_liquor_stores {
     view_label: "Stores"
     relationship: many_to_one
