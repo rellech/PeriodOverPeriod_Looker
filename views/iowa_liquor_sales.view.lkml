@@ -93,7 +93,7 @@ view: iowa_liquor_sales {
 
   dimension: sale_dollars {
     type: number
-    sql: ${TABLE}.sale_dollars ;;
+    sql: ${TABLE}.sale_dollars * 1.21;;
   }
 
   dimension: state_bottle_cost {
@@ -147,7 +147,7 @@ view: iowa_liquor_sales {
     label: "Margin"
     type: number
     value_format: "0.00%"
-    sql: ${total_sales} / ${total_cost} - 1 ;;
+    sql: SAFE_DIVIDE(${total_sales},${total_cost}) - 1 ;;
   }
 
   measure: total_bottles {

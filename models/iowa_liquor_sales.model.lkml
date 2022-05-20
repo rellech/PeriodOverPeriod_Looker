@@ -14,6 +14,10 @@ explore: sales {
   group_label: "Iowa Liquor Sales Explores"
   label: "(1) Iowa Liquor Sales"
   view_name: iowa_liquor_sales
+  access_filter: {
+    field: items.item_description
+    user_attribute: item_access
+  }
   join: iowa_liquor_stores {
     view_label: "Stores"
     relationship: many_to_one
@@ -43,8 +47,16 @@ explore: sales {
     relationship: many_to_one
     sql_on: ${items.item_number} = ${iowa_liquor_sales.item_number} ;;
   }
+  join: store_facts {
+    view_label: "Store using liquid"
+    relationship: many_to_one
+    sql_on: ${store_facts.store_number} = ${iowa_liquor_sales.store_number} ;;
+  }
 
 }
+
+
+
 explore: fannout_test {
   group_label: "Iowa Liquor Sales Explores"
   label: "(2) Fannout Test"
