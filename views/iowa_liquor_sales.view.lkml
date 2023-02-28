@@ -7,6 +7,7 @@ view: iowa_liquor_sales {
     sql: ${TABLE}.bottle_volume_ml ;;
   }
 
+
   dimension: bottles_sold {
     type: number
     sql: ${TABLE}.bottles_sold ;;
@@ -93,7 +94,7 @@ view: iowa_liquor_sales {
 
   dimension: sale_dollars {
     type: number
-    sql: ${TABLE}.sale_dollars * 1.21;;
+    sql: ${TABLE}.sale_dollars / 1.21;;
   }
 
   dimension: state_bottle_cost {

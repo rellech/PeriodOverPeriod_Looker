@@ -20,6 +20,7 @@ explore: sales {
   # }
   join: iowa_liquor_stores {
     view_label: "Stores"
+    type: left_outer
     relationship: many_to_one
     sql_on:  ${iowa_liquor_stores.store_number} = ${iowa_liquor_sales.store_number} ;;
   }
@@ -66,4 +67,9 @@ explore: fannout_test {
     relationship: many_to_one
     sql_on: ${orders_test.customer_id} = ${customer_test.customer_id} ;;
   }
+}
+
+explore: +sales {
+  group_label: "Ejemplo Refinement"
+  view_label: "Iowa Liquor Sales"
 }
