@@ -94,7 +94,22 @@ view: iowa_liquor_sales {
 
   dimension: sale_dollars {
     type: number
-    sql: ${TABLE}.sale_dollars / 1.21;;
+    sql: ${TABLE}.sale_dollars / 1.83;;
+  }
+
+  measure: ejemplo_total_sale_dollars {
+    type: sum
+    sql: ${sale_dollars} ;;
+  }
+
+  measure: ejemplo_avg_sale_dollars {
+    type: average
+    sql: ${sale_dollars} ;;
+  }
+
+  measure: ejemplo_division {
+    type: number
+    sql: safe_divide(${ejemplo_total_sale_dollars}, ${ejemplo_avg_sale_dollars}) ;;
   }
 
   dimension: state_bottle_cost {

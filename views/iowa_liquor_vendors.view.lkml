@@ -12,6 +12,11 @@ view: iowa_liquor_vendors {
     sql: ${TABLE}.vendor_number ;;
   }
 
+  dimension: vendor_id {
+    type: string
+    sql: concat(${vendor_name},'_',${vendor_number});;
+  }
+
   measure: count {
     type: count
     drill_fields: [vendor_name]
