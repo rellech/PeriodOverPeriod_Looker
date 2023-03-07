@@ -21,6 +21,7 @@ view: iowa_liquor_stores {
 
   dimension: store_location {
     group_label: "Geography"
+    label: "store"
     type: string
     sql: ${TABLE}.store_location ;;
   }

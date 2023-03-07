@@ -12,7 +12,7 @@ persist_with: iowa_liquor_sales_default_datagroup
 
 explore: sales {
   group_label: "Iowa Liquor Sales Explores"
-  label: "(1) Iowa Liquor Sales"
+  label: "Iowa Liquor Sales session"
   view_name: iowa_liquor_sales
   # access_filter: {
   #   field: items.item_description

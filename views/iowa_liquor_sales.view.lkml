@@ -7,6 +7,16 @@ view: iowa_liquor_sales {
     sql: ${TABLE}.bottle_volume_ml ;;
   }
 
+  dimension: bottles_2 {
+    type: number
+    sql: ${TABLE}.bottle_volume_ml ;;
+  }
+
+  dimension: suma {
+    type: number
+    sql: ${bottle_volume_ml} + ${bottles_2};;
+  }
+
 
   dimension: bottles_sold {
     type: number
@@ -24,6 +34,15 @@ view: iowa_liquor_sales {
     datatype: date
     sql: ${TABLE}.date ;;
   }
+
+  dimension_group: enrolled {
+    type: duration
+    intervals: [second, minute, hour, day]
+    sql_start: ${sales_time} ;;
+    sql_end: ${sales_time} ;;
+
+  }
+
 
   dimension: invoice_and_item_number {
     primary_key: yes
@@ -94,7 +113,7 @@ view: iowa_liquor_sales {
 
   dimension: sale_dollars {
     type: number
-    sql: ${TABLE}.sale_dollars / 1.83;;
+    sql: ${TABLE}.sale_dollars * 1.21;;
   }
 
   measure: ejemplo_total_sale_dollars {
@@ -150,6 +169,14 @@ view: iowa_liquor_sales {
     sql: ${sale_dollars} ;;
     drill_fields: [detail*]
 
+  }
+
+  measure: sum_sales {
+    label: "Suma de Ventas"
+    description: "Esta metrica para x "
+    type: sum
+    sql: ${sale_dollars} ;;
+    value_format_name: usd
   }
 
   measure: total_cost {
