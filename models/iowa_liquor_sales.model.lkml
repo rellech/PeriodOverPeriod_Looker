@@ -73,3 +73,5 @@ explore: +sales {
   group_label: "Ejemplo Refinement"
   view_label: "Iowa Liquor Sales"
 }
+
+explore: items {}

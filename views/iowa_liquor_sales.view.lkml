@@ -94,7 +94,7 @@ view: iowa_liquor_sales {
 
   dimension: sale_dollars {
     type: number
-    sql: ${TABLE}.sale_dollars / 1.21;;
+    sql: ${TABLE}.sale_dollars * 1.83;;
   }
 
   dimension: state_bottle_cost {
@@ -181,6 +181,6 @@ view: iowa_liquor_sales {
   }
 
   set: detail {
-    fields: [invoice_and_item_number,sales_date,  category, items.item_description, iowa_liquor_stores.store_name, iowa_liquor_county.county, total_sales, total_cost, total_benefit, total_margin]
+    fields: [invoice_and_item_number,sales_date,  category, items.item_description,iowa_liquor_county.county, iowa_liquor_stores.store_name, total_sales, total_cost, total_benefit, total_margin]
   }
 }
