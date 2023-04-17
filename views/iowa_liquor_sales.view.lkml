@@ -181,6 +181,6 @@ view: iowa_liquor_sales {
   }
 
   set: detail {
-    fields: [invoice_and_item_number,sales_date,  category, items.item_description,iowa_liquor_county.county, iowa_liquor_stores.store_name, total_sales, total_cost, total_benefit, total_margin]
+    fields: [sales_date,iowa_liquor_county.county, total_sales, total_cost, total_benefit, total_margin]
   }
 }
