@@ -14,8 +14,7 @@ view: iowa_liquor_county {
   }
 
 
-set: hierarchy_detail {
-  fields: [iowa_liquor_stores.city, iowa_liquor_stores.address,iowa_liquor_stores.store_name ]
-}
-
+  set: hierarchy_detail {
+    fields: [iowa_liquor_stores.city,iowa_liquor_stores.store_name, iowa_liquor_category.category, items.item_description ]
+  }
 }
