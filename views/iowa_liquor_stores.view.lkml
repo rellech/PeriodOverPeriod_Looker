@@ -6,28 +6,33 @@ view: iowa_liquor_stores {
     group_label: "Geography"
     type: string
     sql: ${TABLE}.address ;;
+    drill_fields: [hierarchy_detail*]
   }
 
   dimension: city {
     group_label: "Geography"
     type: string
     sql: ${TABLE}.city ;;
+    drill_fields: [hierarchy_detail*]
   }
 
   dimension: county_number {
     type: string
     sql: ${TABLE}.county_number ;;
+    drill_fields: [hierarchy_detail*]
   }
 
   dimension: store_location {
     group_label: "Geography"
     type: string
     sql: ${TABLE}.store_location ;;
+    drill_fields: [hierarchy_detail*]
   }
 
   dimension: store_name {
     type: string
     sql: ${TABLE}.store_name ;;
+    drill_fields: [hierarchy_detail*]
   }
 
   dimension: store_number {
@@ -39,6 +44,7 @@ view: iowa_liquor_stores {
     group_label: "Geography"
     type: zipcode
     sql: ${TABLE}.zip_code ;;
+    drill_fields: [hierarchy_detail*]
   }
 
   measure: count {
@@ -46,4 +52,9 @@ view: iowa_liquor_stores {
     type: count
     drill_fields: [store_name]
   }
+
+  set: hierarchy_detail {
+    fields: [iowa_liquor_stores.city, iowa_liquor_stores.address,iowa_liquor_stores.store_name ]
+  }
+
 }
