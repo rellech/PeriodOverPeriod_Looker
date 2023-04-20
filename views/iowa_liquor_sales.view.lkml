@@ -25,6 +25,16 @@ view: iowa_liquor_sales {
     sql: ${TABLE}.date ;;
   }
 
+  dimension: month {
+    type: number
+    sql: ${sales_month_num} ;;
+  }
+
+  dimension: year {
+    type: number
+    sql: ${sales_year} ;;
+  }
+
   dimension: invoice_and_item_number {
     primary_key: yes
     type: string
