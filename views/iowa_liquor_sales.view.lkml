@@ -26,12 +26,12 @@ view: iowa_liquor_sales {
   }
 
   dimension: month {
-    type: number
+    type: string
     sql: ${sales_month_num} ;;
   }
 
   dimension: year {
-    type: number
+    type: string
     sql: ${sales_year} ;;
   }
 
