@@ -35,14 +35,16 @@ view: iowa_liquor_sales {
     sql: ${TABLE}.date ;;
   }
 
-  dimension_group: enrolled {
-    type: duration
-    intervals: [second, minute, hour, day]
-    sql_start: ${sales_time} ;;
-    sql_end: ${sales_time} ;;
 
+  dimension: month {
+    type: string
+    sql: ${sales_month_num} ;;
   }
 
+  dimension: year {
+    type: string
+    sql: ${sales_year} ;;
+  }
 
   dimension: invoice_and_item_number {
     primary_key: yes
@@ -113,6 +115,7 @@ view: iowa_liquor_sales {
 
   dimension: sale_dollars {
     type: number
+
     sql: ${TABLE}.sale_dollars * 1.21;;
   }
 
@@ -223,6 +226,6 @@ view: iowa_liquor_sales {
   }
 
   set: detail {
-    fields: [invoice_and_item_number,sales_date,  category, items.item_description, iowa_liquor_stores.store_name, iowa_liquor_county.county, total_sales, total_cost, total_benefit, total_margin]
+    fields: [sales_date,iowa_liquor_county.county, total_sales, total_cost, total_benefit, total_margin]
   }
 }
