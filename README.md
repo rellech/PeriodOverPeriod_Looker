@@ -17,6 +17,7 @@ drilling to row-level detail, and accessing complex metrics &mdash; without havi
 - **Allows for data governance**: By defining business metrics in LookML, you can ensure that Looker is always a
 credible single source of truth.
 
+
 The Looker application uses a model written in LookML to construct SQL queries against a particular database that
 business analysts can [Explore](https://cloud.google.com/looker/docs/r/exploring-data) on. For an overview on the basics of LookML, see [What is LookML?](https://cloud.google.com/looker/docs/r/what-is-lookml)
 
