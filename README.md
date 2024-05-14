@@ -21,9 +21,29 @@ What is the project goal that we are trying to achieve?
 
 What this proyect will need:
  1. A layer arquitecture in Looker
- 2. Table of periods in you WH
+ 2. A Period table in you WH
  3. Knowledge in liquid variables
-    
+
+<h2></h2>
+
+   1. Check documentation of this
+      
+   https://www.spectacles.dev/blog/how-to-fix-your-lookml-project-structure
+
+   2. Period Table
+
+   I have seen this in other retail companies but I decided to reduce the amount of work to maintain it. It goes like this:
+   
+PoP        |ini_c     |fin_c     |ini_p     |fin_p     
+-----------|----------|----------|----------|----------
+YoY        |2024-01-01|2024-04-29|2023-01-01|2023-04-29
+MoM        |2024-04-01|2024-04-29|2023-04-01|2023-04-29
+Same day ly|2024-04-29|2024-04-29|2023-04-24|2023-04-24
+First Q    |2024-01-01|2024-03-31|2023-01-01|2023-03-31
+Second Q   |2024-04-01|2024-06-30|2023-04-01|2023-06-30
+
+Where _c_ stands for current and _p_ past. If you want to add a 3rd year of comparison, you will need to add two more **columns**. With a daily process you can keep this table up-to-date.
+
 
 
 How does this result translate to a dashboard?
