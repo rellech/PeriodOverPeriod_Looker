@@ -2,6 +2,11 @@
 
 <h2><span style="color:#2d7eea">LookML Overview</span></h2>
 
+
+What is the project goal that we are trying to achieve?
+
+Marckdown: *
+
 How does this result translate to a dashboard?
 
 The user will have to select within two options:
