@@ -3,6 +3,11 @@
 <h2><span style="color:#2d7eea">LookML Overview</span></h2>
 
 
+What challenges are they facing now?
+ * Creating objects to solve each PoP within one table. Over excessive coding.
+ * Not being able to recreate to other tables due not being able to scale.
+   
+
 What is the project goal that we are trying to achieve?
 
  * Make LookML more readable
@@ -12,13 +17,14 @@ What is the project goal that we are trying to achieve?
  * Being able to add new period types faster(YoY, MoM etc)
  * Add years to compare faster
 
+<h2><span style="color:#2d7eea">Let's begin</span></h2>
 
--OR-
+What this proyect will need:
+ 1. A layer arquitecture in Looker
+ 2. Table of periods in you WH
+ 3. Knowledge in liquid variables
+    
 
- - Bullet list
-              - Nested bullet
-                  - Sub-nested bullet etc
-          - Bullet list item 2 
 
 How does this result translate to a dashboard?
 
