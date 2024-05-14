@@ -20,17 +20,14 @@ What is the project goal that we are trying to achieve?
 <h2><span style="color:#2d7eea">Let's begin</span></h2>
 
 What this proyect will need:
- 1. A layer arquitecture in Looker
- 2. A Period table in you WH
- 3. Knowledge in liquid variables
+ 1. A Period table in you WH
+ 2. A layer arquitecture in Looker
+ 3. Knowledge in liquid variables, refiments and extensions
 
 <h2></h2>
 
-   1. Check documentation of this
-      
-   https://www.spectacles.dev/blog/how-to-fix-your-lookml-project-structure
 
-   2. Period Table
+   1. Period Table
 
    I have seen this in other retail companies but I decided to reduce the amount of work to maintain it. It goes like this:
    
@@ -44,7 +41,62 @@ Second Q   |2024-04-01|2024-06-30|2023-04-01|2023-06-30
 
 Where _c_ stands for current and _p_ past. If you want to add a 3rd year of comparison, you will need to add two more **columns**. With a daily process you can keep this table up-to-date.
 
+ ***i. Change the column name PoP to another. Looker didnt like it. It changed it to P_op.***
 
+   2. Check documentation of the type of architecture
+      
+   https://www.spectacles.dev/blog/how-to-fix-your-lookml-project-structure
+
+  <h3> Folder 1_base</h3> 
+  
+  Folder **1_base** has auto generated views of my fact table and my Period_over_period table specified above.
+   
+<h3> Folder 2_standard</h3>
+
+   Folder **2_standard** has very few modification of the auto-generated views.
+   
+* Refined both views
+* Hidden dimensions
+* Add timeframes to my table to that the user to use when comparing
+* Added the column _PoP_ as filter on my Period_over_period view. This filter will allways needs to filter the Period_over_period table to not cause a 
+ cartesian explosion.
+ 
+ Thus:
+ 
+` sql:  {% condition period_defined_filter %} ${Period} {% endcondition %};;`
+
+<h3> Folder 3_logical</h3>
+
+   Folder **3_logical**.sales_periods_base
+
+   Here is where most things happen. I have created one base explore, where other business areas can rereuse. 
+
+   For my fact table I have:
+   1. Extended from the _2_standard_
+   2. Added Parameter to select if it is a _Predefinded PoP- or a _Range_
+   3. A filter type datetime for when the user selects _Range_ . Added a `sql: true ;;` so that it dosent really filter(`WHERE`) data but instead use it as a variable.
+   4. Added one measure for each year to compare. So in this case: **Two**.
+
+Each measure has this type of coding, which in general sence says that if the parameter is _Predefined PoP_ then select data that is in the range of **Period_over_period.ini_x** and **Period_over_period.fin_x**. If it is selected by _Range_ then select data between **start_date** and **end_date** of the range.
+
+`code(   {% if sales_periods_base.type_of_filter._parameter_value == 'poppre' %}
+            case when  ${TABLE}.date BETWEEN period_over_period.ini_c and period_over_period.fin_c
+                 then ${TABLE}.state_bottle_cost end
+        {% elsif sales_periods_base.type_of_filter._parameter_value == 'popran' %}
+            case when  ( ${TABLE}.date) BETWEEN  {% date_start sales_periods_base.date_range_filter %} AND {% date_end sales_periods_base.date_range_filter %}
+                 then ${TABLE}.state_bottle_cost else null end
+        {% else %}
+            null
+        {% endif %}   ;;
+        )`
+   5.
+
+ Folder **3_logical**.sales_periods_mkt_ext
+
+ What is happening here is that I am extending **AGAIN** the explore 
+
+
+   date time all tables / read all of the table / cannot overlap / may look like an error
 
 How does this result translate to a dashboard?
 
