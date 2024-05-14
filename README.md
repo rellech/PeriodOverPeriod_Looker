@@ -1,10 +1,20 @@
-<h1><span style="color:#2d7eea">README - Your LookML Project</span></h1>
+<h1><span style="color:#2d7eea">README - Your LookML PoP Project</span></h1>
 
 <h2><span style="color:#2d7eea">LookML Overview</span></h2>
+
+How does this translate to dashboard:
+The user will have to select within two options:
+**1.** A predefined period
+**2.** A range of dates
+
+![image](https://github.com/rellech/PeriodOverPeriod_Looker/assets/142577522/570f4f98-3634-4974-bb2e-01d3d30859ed)
+
 
 LookML is a data modeling language for describing dimensions, fields, aggregates and relationships based on SQL.
 
 LookML is powerful because it:
+
+
 
 - **Is all about reusability**: Most data analysis requires the same work to be done over and over again. You extract
 raw data, prepare it, deliver an analysis... and then are never able touse any of that work again. This is hugely
