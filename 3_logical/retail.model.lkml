@@ -3,6 +3,7 @@ connection: "con_rell"
 include: "/3_logical/sales_periods_base.explore.lkml"
 include: "/3_logical/sales_periods_mkt_ext.explore.lkml"
 include: "/3_logical/sales_periods_finance_ext.explore.lkml"
+include: "/2_standard/period_over_period.layer.view.lkml"
 # include: "/3_logical/sales_mkt.explore.lkml"
 # include: "/2_standard/period_over_period.view.lkml"
 # include all views in the views/ folder in this project
