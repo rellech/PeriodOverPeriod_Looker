@@ -5,7 +5,20 @@
 
 What is the project goal that we are trying to achieve?
 
-Marckdown: *
+ * Make LookML more readable
+ * Make Lookml more scalable
+ * Able to add PoP over other tables
+ * Have the posability to have predefined periods or range of dates within one explore
+ * Being able to add new period types faster(YoY, MoM etc)
+ * Add years to compare faster
+
+
+-OR-
+
+ - Bullet list
+              - Nested bullet
+                  - Sub-nested bullet etc
+          - Bullet list item 2 
 
 How does this result translate to a dashboard?
 
