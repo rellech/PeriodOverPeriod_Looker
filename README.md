@@ -109,29 +109,3 @@ The user will have to select within two options:
 ![image](https://github.com/rellech/PeriodOverPeriod_Looker/assets/142577522/570f4f98-3634-4974-bb2e-01d3d30859ed)
 
 
-
-
-
-
-LookML is a data modeling language for describing dimensions, fields, aggregates and relationships based on SQL.
-
-LookML is powerful because it:
-
-
-
-- **Is all about reusability**: Most data analysis requires the same work to be done over and over again. You extract
-raw data, prepare it, deliver an analysis... and then are never able touse any of that work again. This is hugely
-inefficient, since the next analysis often involves many of the same steps. With LookML, once you define a
-dimension or a measure, you continue to build on it, rather than having to rewrite it again and again.
-- **Empowers end users**:  The data model that data analysts and developers create in LookML condenses and
-encapsulates the complexity of SQL, it and lets analysts get the knowledge about what their data means out of
-their heads so others can use it. This enables non-technical users to do their jobs &mdash; building dashboards,
-drilling to row-level detail, and accessing complex metrics &mdash; without having to worry about what’s behind the curtain.
-- **Allows for data governance**: By defining business metrics in LookML, you can ensure that Looker is always a
-credible single source of truth.
-
-
-The Looker application uses a model written in LookML to construct SQL queries against a particular database that
-business analysts can [Explore](https://cloud.google.com/looker/docs/r/exploring-data) on. For an overview on the basics of LookML, see [What is LookML?](https://cloud.google.com/looker/docs/r/what-is-lookml)
-
-
