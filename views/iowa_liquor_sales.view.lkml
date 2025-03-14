@@ -1,4 +1,7 @@
 view: iowa_liquor_sales {
+
+
+
   sql_table_name: `LIQUOR_SALES_STAGING.iowa_liquor_sales`
     ;;
 
